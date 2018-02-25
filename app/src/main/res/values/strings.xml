@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">SchedulesMadeEasy</string>
+    <string name="app_name">Schedules Made Easy</string>
+
+    <!--start WELCOME SCREEN -->
+    <string name="welcome_home">Welcome</string>
+    <string name="sign_in_start_up">Sign In</string>
+    <string name="sign_up_start_up">Sign Up</string>
+    <string name="welcome_message_home">It\'s time for you to better manage your schedules. You\'re
+                                        one step closer to increasing you and your group\'s productivity!</string>
+    <!--end WELCOME SCREEN -->
+
+    <!-- start LOGIN SCREEN -->
+    <string name="sign_in_login">Sign In</string>
+    <string name="user_name_login">User Name</string>
+    <string name="forgot_user_name_login">Forgot User Name</string>
+    <string name="password_login">Password</string>
+    <string name="forgot_password_login">Forgot Password</string>
+    <string name="placeholder_login">***************</string>
+    <string name="placeholder_user_name">***************</string>
+    <!-- end LOGIN SCREEN -->
+
+
 </resources>

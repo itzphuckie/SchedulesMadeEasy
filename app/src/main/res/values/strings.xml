@@ -20,4 +20,13 @@
     <!-- end LOGIN SCREEN -->
 
 
+    <!-- start MAIN SCREEN -->
+
+    <!-- end MAIN SCREEN -->
+
+    <!-- start MENU ITEMS -->
+    <string name="action_settings">Settings</string>
+    <!-- end MENU ITEMS -->
+
+
 </resources>

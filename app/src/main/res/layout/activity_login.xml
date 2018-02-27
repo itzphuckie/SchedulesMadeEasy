@@ -7,7 +7,7 @@
     tools:context="com.schedulesmadeeasy.groupsxyz.LoginActivity">
 
     <Button
-        android:id="@+id/sign_in_button"
+        android:id="@+id/sign_in_button_login"
         android:layout_width="300dp"
         android:layout_height="65dp"
         android:layout_marginBottom="100dp"
@@ -29,9 +29,10 @@
         android:layout_height="111dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_vectorlogo" />

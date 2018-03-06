@@ -25,6 +25,7 @@
     <!-- end MAIN SCREEN -->
 
     <!-- start MENU ITEMS -->
+    <string name="my_groups_nav">My Groups</string>
     <string name="action_settings">Settings</string>
     <!-- end MENU ITEMS -->
 

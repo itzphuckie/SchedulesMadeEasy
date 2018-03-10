@@ -5,9 +5,35 @@
         <item
             android:id="@+id/three_bar"
             android:layout_width="match_parent"
-            android:icon="@drawable/ic_groups_24dp"
+            android:icon="@drawable/ic_group_black_24dp"
             android:layout_gravity="left"
             android:title="@string/my_groups_nav"
+            app:showAsAction="never"/>
+
+        <item
+            android:id="@+id/my_shifts"
+            android:layout_width="match_parent"
+            android:icon="@drawable/ic_groups_24dp"
+            android:title="@string/my_shifts"
+            app:showAsAction="never"
+            />
+        <item
+            android:id="@+id/my_availability"
+            android:layout_width="match_parent"
+            android:icon="@drawable/ic_alarm_on_black_24dp"
+            android:title="@string/my_availability"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/notifications"
+            android:layout_width="match_parent"
+            android:icon="@drawable/ic_drafts_black_24dp"
+            android:title="@string/notifications"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/requests"
+            android:layout_width="match_parent"
+            android:icon="@drawable/ic_sort_black_24dp"
+            android:title="@string/requests"
             app:showAsAction="never"/>
         <item
             android:id="@+id/action_settings"

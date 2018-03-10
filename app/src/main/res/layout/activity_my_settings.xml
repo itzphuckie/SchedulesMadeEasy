@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.schedulesmadeeasy.groupsxyz.MySettingsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="4dp"
+        android:text ="Settings"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="551dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/PersonalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="128dp"
+                tools:layout_editor_absoluteY="318dp" />
+
+            <EditText
+                android:id="@+id/personalPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="*********"
+                tools:layout_editor_absoluteX="128dp"
+                tools:layout_editor_absoluteY="167dp" />
+
+            <TextView
+                android:id="@+id/titleEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E-mail:"
+                android:textSize="20dp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <EditText
+                android:id="@+id/PersonalBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="06/01/1992"
+                tools:layout_editor_absoluteX="128dp"
+                tools:layout_editor_absoluteY="213dp" />
+
+            <EditText
+                android:id="@+id/personalPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="(***)-***-****"
+                tools:layout_editor_absoluteX="128dp"
+                tools:layout_editor_absoluteY="269dp" />
+
+            <TextView
+                android:id="@+id/TitleAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address:"
+                android:textSize="20dp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="326dp" />
+
+            <Button
+                android:id="@+id/EditInformationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit information"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="408dp" />
+
+            <TextView
+                android:id="@+id/TitlePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone:"
+                android:textSize="20dp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="277dp" />
+
+            <TextView
+                android:id="@+id/titlePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password:"
+                android:textSize="20dp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="175dp" />
+
+            <EditText
+                android:id="@+id/personalEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="JohnnyS19@gmail.com"
+                tools:layout_editor_absoluteX="100dp"
+                tools:layout_editor_absoluteY="110dp" />
+
+            <TextView
+                android:id="@+id/TitleBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="D.O.B.:"
+                android:textSize="20dp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="224dp" />
+
+            <EditText
+                android:id="@+id/PersonalName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="John Smith"
+                tools:layout_editor_absoluteX="96dp"
+                tools:layout_editor_absoluteY="66dp" />
+
+            <TextView
+                android:id="@+id/TitleName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="20dp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="70dp" />
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="472dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

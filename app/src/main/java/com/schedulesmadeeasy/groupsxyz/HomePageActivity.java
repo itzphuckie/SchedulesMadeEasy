@@ -1,5 +1,6 @@
 package com.schedulesmadeeasy.groupsxyz;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,8 +11,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -22,15 +21,18 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
-
-
+                        switch(item.getItemId()){
+                            case R.id.action_settings:
+                                Intent intent = new Intent(getApplicationContext(), MySettingsActivity.class);
+                                startActivity(intent);
+                        }
                         return true;
                     }
                 }

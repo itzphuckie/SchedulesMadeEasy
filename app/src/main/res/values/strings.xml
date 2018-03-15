@@ -11,13 +11,18 @@
 
     <!-- start LOGIN SCREEN -->
     <string name="sign_in_login">Sign In</string>
-    <string name="user_name_login">User Name</string>
+    <string name="user_name_login">Email</string>
     <string name="forgot_user_name_login">Forgot User Name</string>
     <string name="password_login">Password</string>
     <string name="forgot_password_login">Forgot Password</string>
-    <string name="placeholder_login">***************</string>
+    <string name="placeholder_login">*******</string>
     <string name="placeholder_user_name">***************</string>
     <!-- end LOGIN SCREEN -->
+
+    <!-- start SIGN UP SCREEN -->
+    <string name="sign_up">Sign Up</string>
+
+    <!-- end SIGN UP SCREEN -->
 
 
     <!-- start MAIN SCREEN -->

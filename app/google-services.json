@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1083938186615",
+    "firebase_url": "https://schedules-made-easy.firebaseio.com",
+    "project_id": "schedules-made-easy",
+    "storage_bucket": "schedules-made-easy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083938186615:android:e7332616fb0805c7",
+        "android_client_info": {
+          "package_name": "com.schedulesmadeeasy.groupsxyz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083938186615-4bepui3lludq0524k6c8n493lvmjn2r6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schedulesmadeeasy.groupsxyz",
+            "certificate_hash": "2031c9197634936e8fc6b92a57a126c151fec968"
+          }
+        },
+        {
+          "client_id": "1083938186615-6jk8r64kvuourcdfij77r6mqroim7327.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIaIz5xJzYe2MH0hjAV_dq976Ljt6bM0w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083938186615-6jk8r64kvuourcdfij77r6mqroim7327.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

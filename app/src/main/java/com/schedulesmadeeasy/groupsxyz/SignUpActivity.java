@@ -27,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button mSignUpButton;
     private EditText mUserName;
     private EditText mPassword;
+    private EditText mPassword2;
     private static int sUserNameCount;
     private static int sPasswordCount;
 
@@ -39,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
         sPasswordCount = 0;
         mUserName = findViewById(R.id.user_name_edit_text_sign_up);
         mPassword = findViewById(R.id.password_edit_text_sign_up);
+        mPassword2 = findViewById(R.id.password2EditText);
         mSignUpButton = findViewById(R.id.sign_up_button);
 
         //[START initialize_auth]
@@ -68,7 +70,17 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v){
                 String userName = mUserName.getText().toString();
                 String passWord = mPassword.getText().toString();
-                signUp(userName, passWord);
+                if(passWord.equals(mPassword2.getText().toString())){
+                    signUp(userName, passWord);
+                }else{
+                    Toast.makeText(SignUpActivity.this, "Passwords do not match.",
+                            Toast.LENGTH_LONG).show();
+                    mPassword.setText("");
+                    mPassword2.setText("");
+                    mUserName.clearFocus();
+                    mPassword.clearFocus();
+                    mPassword2.clearFocus();
+                }
             }
         });
 
@@ -160,9 +172,20 @@ public class SignUpActivity extends AppCompatActivity {
         String password = mPassword.getText().toString();
         if (TextUtils.isEmpty(password)){
             mPassword.setError("Required.");
+            valid = false;
         }else{
             mPassword.setError(null);
         }
+
+        String password2 = mPassword2.getText().toString();
+        if (TextUtils.isEmpty(password2)){
+            mPassword.setError("Required.");
+            valid = false;
+        }else{
+            mPassword.setError(null);
+        }
+
+
         return valid;
 
     }
@@ -183,8 +206,8 @@ public class SignUpActivity extends AppCompatActivity {
                 startActivity(i);
             }
         }else{
-            mUserName.setText(R.string.placeholder_user_name);
-            mPassword.setText(R.string.password_login);
+            mUserName.setText("");
+            mPassword.setText("");
             sPasswordCount = 0;
             sUserNameCount = 0;
         }

@@ -15,15 +15,23 @@
     <string name="forgot_user_name_login">Forgot User Name</string>
     <string name="password_login">Password</string>
     <string name="forgot_password_login">Forgot Password</string>
-    <string name="placeholder_login">*******</string>
-    <string name="placeholder_user_name">***************</string>
+    <string name="placeholder_login"></string>
+    <string name="placeholder_user_name">******</string>
     <!-- end LOGIN SCREEN -->
 
     <!-- start SIGN UP SCREEN -->
     <string name="sign_up">Sign Up</string>
-
+    <string name="password_sign_up">Password</string>
+    <string name="passwordAuthenticate">Re-Enter Password</string>
     <!-- end SIGN UP SCREEN -->
 
+    <!-- start SET UP SCREEN -->
+    <string name="setup_header">Please Input Information</string>
+    <string name="user_name">User Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="setup_button">Finish Setup</string>
+    <!-- end SET UP SCREEN -->
 
     <!-- start MAIN SCREEN -->
 

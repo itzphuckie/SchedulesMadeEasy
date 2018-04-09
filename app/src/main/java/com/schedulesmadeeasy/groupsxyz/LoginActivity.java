@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 //TODO MAKE EDIT TEXT EMPTY WHEN THEY FIRST CLICK ON IT, THEN MAKE IT EDITABLE FROM THE END
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "Login";
+    private static final String TAG = "LOGIN";
     private FirebaseAuth mAuth;
     private EditText mUserName;
     private EditText mPassword;
@@ -158,16 +158,24 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user){
         if(user != null){
             if(user.isEmailVerified()){
-                Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
-                startActivity(i);
+                if(user.getDisplayName().equals("")){
+                    Log.d(TAG, "DISPLAY NAME NOT SET.");
+                    //TODO SEND TO SET INFO PAGE
+                    Intent i = new Intent(getApplicationContext(), SetUpActivity.class);
+                    startActivity(i);
+                }else{
+                    Log.d(TAG, "DISPLAY NAME SET: " + user.getDisplayName());
+                    Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
+                    startActivity(i);
+                }
             }else{
                 Toast.makeText(LoginActivity.this,
                         "Please verify email.",
                         Toast.LENGTH_LONG).show();
             }
         }else{
-            mUserName.setText(R.string.placeholder_user_name);
-            mPassword.setText(R.string.password_login);
+            //mUserName.setText(R.string.placeholder_user_name);
+            mPassword.setText("");
             sPasswordCount = 0;
             sUserNameCount = 0;
         }

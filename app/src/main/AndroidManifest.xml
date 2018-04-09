@@ -19,7 +19,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".MySettingsActivity" />
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SetUpActivity"></activity>
     </application>
 
 </manifest>

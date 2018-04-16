@@ -10,11 +10,15 @@ public class Group {
     String title;
     String members;
     String status;
+    String id;
 
-    public Group(String title, String members, String status) {
+    public Group(){};
+
+    public Group(String title, String members, String status, String id) {
         this.title = title;
         this.members = members;
         this.status = status;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -39,6 +43,14 @@ public class Group {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id){
+        this.id = id;
     }
 }
 

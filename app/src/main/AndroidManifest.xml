@@ -20,7 +20,8 @@
         <activity android:name=".HomePageActivity" />
         <activity android:name=".MySettingsActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".SetUpActivity"></activity>
+        <activity android:name=".SetUpActivity" />
+        <activity android:name=".AddGroupActivity"></activity>
     </application>
 
 </manifest>

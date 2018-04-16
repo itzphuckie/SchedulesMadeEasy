@@ -19,7 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/cardview_light_background" />
+        app:srcCompat="@drawable/ic_vectorlogo"
+        />
 
     <TextView
         android:id="@+id/cardViewTitle"
@@ -33,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/cardViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -42,12 +43,12 @@
         app:layout_constraintTop_toBottomOf="@+id/cardViewTitle" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/cardViewNumberOfUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Number of People: 8"
         app:layout_constraintStart_toEndOf="@+id/cardViewImage"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/cardViewStatus" />
 </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>

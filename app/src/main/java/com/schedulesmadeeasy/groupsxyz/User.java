@@ -5,10 +5,10 @@ package com.schedulesmadeeasy.groupsxyz;
  */
 
 public class User {
-    private String mUserName;
-    private String mEmail;
-    private String mFirstName;
-    private String mLastName;
+    private String user_name;
+    private String email;
+    private String first_name;
+    private String last_name;
     private String userId;
 
     public User(){
@@ -16,27 +16,27 @@ public class User {
     }
 
     public User(String mUserName, String mEmail, String mFirstName, String mLastName, String userId) {
-        this.mUserName = mUserName;
-        this.mEmail = mEmail;
-        this.mFirstName = mFirstName;
-        this.mLastName = mLastName;
+        this.user_name = mUserName;
+        this.email = mEmail;
+        this.first_name = mFirstName;
+        this.last_name = mLastName;
         this.userId = userId;
     }
 
-    public String getmUserName() {
-        return mUserName;
+    public String getUserName() {
+        return user_name;
     }
 
-    public String getmEmail() {
-        return mEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public String getmFirstName() {
-        return mFirstName;
+    public String getFirstName() {
+        return first_name;
     }
 
-    public String getmLastName() {
-        return mLastName;
+    public String getLastName() {
+        return last_name;
     }
 
     public String getUserId() {

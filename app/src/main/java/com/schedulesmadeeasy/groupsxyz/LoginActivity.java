@@ -158,15 +158,21 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user){
         if(user != null){
             if(user.isEmailVerified()){
-                if(user.getDisplayName().equals("")){
+                //WORKAROUND FOR GETDISPLAYNAME BUG
+                if(user.getDisplayName()==null){
                     Log.d(TAG, "DISPLAY NAME NOT SET.");
-                    //TODO SEND TO SET INFO PAGE
                     Intent i = new Intent(getApplicationContext(), SetUpActivity.class);
                     startActivity(i);
                 }else{
                     Log.d(TAG, "DISPLAY NAME SET: " + user.getDisplayName());
-                    Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
-                    startActivity(i);
+                    if(user.getDisplayName().equals("")){
+                        Log.d(TAG, "DISPLAY NAME NOT SET.");
+                        Intent i = new Intent(getApplicationContext(), SetUpActivity.class);
+                        startActivity(i);
+                    }else{
+                        Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
+                        startActivity(i);
+                    }
                 }
             }else{
                 Toast.makeText(LoginActivity.this,

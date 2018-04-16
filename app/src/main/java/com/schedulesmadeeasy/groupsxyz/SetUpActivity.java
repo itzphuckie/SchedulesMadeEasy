@@ -4,15 +4,20 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SetUpActivity extends AppCompatActivity {
     private static final String TAG = "SETUP";
@@ -50,6 +55,8 @@ public class SetUpActivity extends AppCompatActivity {
                 if(!validateForm()){
                    return;
                 }
+
+
                 addUserInfo();
             }
         });
@@ -66,9 +73,39 @@ public class SetUpActivity extends AppCompatActivity {
         String id = mUser.getUid();
         User user = new User(user_name, mUser.getEmail(), first_name, last_name, id);
         //ADDING USER TO DATABASE
-        databaseUsers.child(id).setValue(user);
-        Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
-        startActivity(i);
+        databaseUsers.child(id).setValue(user, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    Log.d(TAG, "UNABLE TO POST: " + databaseError);
+                    Toast.makeText(SetUpActivity.this, "Username is taken.",
+                            Toast.LENGTH_LONG).show();
+                    mUserName.setText("");
+                }else{
+                    Toast.makeText(SetUpActivity.this, "WRITTEN WOOOO", Toast.LENGTH_SHORT).show();
+                    writeUsername();
+                    Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
+                    startActivity(i);
+                }
+            }
+        });
+    }
+
+    private void writeUsername(){
+        String user_name = mUserName.getText().toString().trim();
+        DatabaseReference databaseUsernames = FirebaseDatabase.getInstance().getReference("usernames");
+
+        databaseUsernames.child(user_name).setValue(mUser.getUid(), new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    Log.d(TAG,"Some shit happened: " + databaseError.getMessage());
+                }else{
+                    Log.d(TAG, "WRITING TO USERNAME DATABASE");
+                }
+            }
+        });
+
     }
 
     private boolean validateForm(){

@@ -13,8 +13,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomePageActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
+    private List<Group> groups;
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +43,13 @@ public class HomePageActivity extends AppCompatActivity {
                 }
         );
 
-        RecyclerView recyclerView = findViewById(R.id.group_recycler_view);
+        rv = findViewById(R.id.group_recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(llm);
+        rv.setLayoutManager(llm);
         //TODO ADD A LIST ADAPTER
+
+        initializeData();
+        initializeAdapter();
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -54,6 +62,16 @@ public class HomePageActivity extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
     }
 
+    private void initializeData(){
+        groups = new ArrayList<>();
+        groups.add(new Group("Chipotle", "6", "Manager"));
+        groups.add(new Group("Starbucks", "3", "Member"));
+    }
+
+    private void initializeAdapter(){
+        GroupRVAdapter adapter = new GroupRVAdapter(groups);
+        rv.setAdapter(adapter);
+    }
     /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

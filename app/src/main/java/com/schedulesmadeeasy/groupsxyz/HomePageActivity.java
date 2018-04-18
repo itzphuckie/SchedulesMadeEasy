@@ -123,12 +123,10 @@ public class HomePageActivity extends AppCompatActivity {
 
     private void initializeData(){
         groups = new ArrayList<>();
-        groups.add(new Group("Chipotle", "6", "Manager", "1"));
-        groups.add(new Group("Starbucks", "3", "Member", "1"));
     }
 
     private void initializeAdapter(){
-        GroupRVAdapter adapter = new GroupRVAdapter(groups);
+        GroupRVAdapter adapter = new GroupRVAdapter(groups, this);
         rv.setAdapter(adapter);
     }
     /*

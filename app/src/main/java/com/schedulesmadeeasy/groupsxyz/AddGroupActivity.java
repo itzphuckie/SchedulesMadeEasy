@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,20 +40,36 @@ public class AddGroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validateForm()){
-                    addGroupInfo();
+                    addGroupInfoForUser();
                     //TODO POST "GROUP_ID":{ "events": "username": "time", "requests"..., "members"
+
                 }
             }
         });
     }
 
-    private void addGroupInfo(){
+    private void addGroupInfoForUser(){
         String title = mTitleEditText.getText().toString();
         DatabaseReference groupRef = mRefUserGroups.push();
         groupRef.setValue(new Group(title, "1", "Manager", groupRef.getKey()));
         //TODO ADD ON SUCCESS LISTENER
+        mRefGroupInfo.child(groupRef.getKey()+"/members/"+mUser.getDisplayName()).setValue("Manager",
+                new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                        if(databaseError != null){
+                            System.out.println("DATA COULD NOT BE SAVED: " + databaseError.getMessage());
+                        }else{
+                            System.out.println("DATA SAVED SUCCESSFULLY");
+                        }
+                    }
+                });
         Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
         startActivity(intent);
+    }
+
+    private void addToGroups(){
+        return;
     }
 
     private boolean validateForm(){

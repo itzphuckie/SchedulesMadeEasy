@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
+
         if(extras != null){
             mUserName.setText(extras.getString("Email"));
         }
@@ -84,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         //Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
     }
 
     @Override

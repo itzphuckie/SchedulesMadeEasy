@@ -55,20 +55,16 @@ public class SetUpActivity extends AppCompatActivity {
                 if(!validateForm()){
                    return;
                 }
-
-
                 addUserInfo();
             }
         });
     }
 
     private void addUserInfo(){
-        String user_name = mUserName.getText().toString().trim();
+        final String user_name = mUserName.getText().toString().trim();
         String first_name = mFirstName.getText().toString().trim();
         String last_name = mLastName.getText().toString().trim();
         //Updating Name for User
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName(mFirstName.getText().toString() + " " + mLastName.getText().toString()).build();
 
         String id = mUser.getUid();
         User user = new User(user_name, mUser.getEmail(), first_name, last_name, id);
@@ -83,7 +79,13 @@ public class SetUpActivity extends AppCompatActivity {
                     mUserName.setText("");
                 }else{
                     Toast.makeText(SetUpActivity.this, "WRITTEN WOOOO", Toast.LENGTH_SHORT).show();
+                    //EDITING PROFILE DISPLAY NAME TO USER NAME
+                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(user_name).build();
+                    mUser.updateProfile(profileUpdates);
+                    //WRITING USERNAME TO LIST OF TAKEN USERNAMES
                     writeUsername();
+
                     Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
                     startActivity(i);
                 }

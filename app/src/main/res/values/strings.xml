@@ -44,6 +44,8 @@
     <string name="my_availability">My Availability</string>
     <string name="notifications">Notifications</string>
     <string name="requests">Requests</string>
+    <string name="title_activity_manager_schedule">ManagerScheduleActivity</string>
+    <string name="title_activity_member_schedules">MemberSchedulesActivity</string>
     <!-- end MENU ITEMS -->
 
 

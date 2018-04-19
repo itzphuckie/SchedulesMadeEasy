@@ -38,8 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.password_edit_text);
 
         Bundle extras = getIntent().getExtras();
-
-
         if(extras != null){
             mUserName.setText(extras.getString("Email"));
         }

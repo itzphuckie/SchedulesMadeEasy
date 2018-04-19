@@ -1,6 +1,7 @@
 package com.schedulesmadeeasy.groupsxyz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
@@ -70,6 +71,18 @@ public class GroupRVAdapter extends RecyclerView.Adapter<GroupRVAdapter.GroupVie
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, groups.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+                if(groups.get(position).getStatus().equals("Manager")){//IF YOU ARE A MANAGER OF THE APP GO LOOK AT THE SCHEDULE
+                    Intent intent = new Intent(mContext, ManagerScheduleActivity.class);
+                    intent.putExtra("ID", groups.get(position).getId());
+                    intent.putExtra("TITLE", groups.get(position).getTitle());
+                    mContext.startActivity(intent);
+                }else{//YOU ARE NOT A MANAGER OF THE GROUP SO YOUR HAVE TO BE A MEMBER
+                    Log.d(TAG, "NOT MANAGER:");
+                    Intent intent = new Intent(mContext, MemberScheduleActivity.class);
+                    intent.putExtra("ID", groups.get(position).getId());
+                    intent.putExtra("TITLE", groups.get(position).getTitle());
+                    mContext.startActivity(intent);
+                }
             }
         });
     }

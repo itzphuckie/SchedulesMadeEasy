@@ -92,14 +92,28 @@ public class HomePageActivity extends AppCompatActivity {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         switch(item.getItemId()){
+                            case R.id.my_shifts:
+                                Intent myShiftsPage = new Intent(getApplicationContext(), MyShifts.class);
+                                startActivity(myShiftsPage);
+                                break;
+
                             case R.id.action_settings:
-                                Intent intent = new Intent(getApplicationContext(), MySettingsActivity.class);
-                                startActivity(intent);
+                                Intent settingsPage = new Intent(getApplicationContext(), MySettingsActivity.class);
+                                startActivity(settingsPage);
+                                break;
+
+                            case R.id.my_availability:
+                                Intent availabilityPage = new Intent(getApplicationContext(), PLACEHOLDER.class);
+                                startActivity(availabilityPage);
+                                break;
+
                         }
                         return true;
                     }
                 }
         );
+
+
 
         //GETTING TOOLBAR
         mDrawerLayout = findViewById(R.id.drawer_layout);

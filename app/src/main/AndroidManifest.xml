@@ -29,7 +29,8 @@
         <activity
             android:name=".MemberScheduleActivity"
             android:label="@string/title_activity_member_schedules"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MyShifts"></activity>
     </application>
 
 </manifest>

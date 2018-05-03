@@ -48,5 +48,9 @@
     <string name="title_activity_member_schedules">MemberSchedulesActivity</string>
     <!-- end MENU ITEMS -->
 
+    <!-- start MY SHIFTS -->
+    <string name="s">My Groups</string>
+    <!-- end MY SHIFTS -->
+
 
 </resources>

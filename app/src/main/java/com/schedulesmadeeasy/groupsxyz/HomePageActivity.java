@@ -95,6 +95,11 @@ public class HomePageActivity extends AppCompatActivity {
                             case R.id.action_settings:
                                 Intent intent = new Intent(getApplicationContext(), MySettingsActivity.class);
                                 startActivity(intent);
+                                break;
+                            case R.id.my_availability:
+                                Intent intent1 = new Intent(getApplicationContext(), myAvailability.class);
+                                startActivity(intent1);
+                                break;
                         }
                         return true;
                     }

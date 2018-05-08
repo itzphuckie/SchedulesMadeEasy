@@ -144,10 +144,10 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="112dp"
-        android:layout_height="45dp"
+        android:layout_height="46dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="42dp"
         android:text="Time"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -184,7 +184,7 @@
         android:layout_width="187dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="42dp"
         android:text="Day of The Week"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -229,7 +229,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="To:"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -243,7 +243,7 @@
         android:layout_width="wrap_content"
         android:layout_height="29dp"
         android:layout_marginStart="184dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="From:"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -268,5 +268,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:layout_constraintVertical_bias="0.714" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="258dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="My Weekly Availability"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_availability"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

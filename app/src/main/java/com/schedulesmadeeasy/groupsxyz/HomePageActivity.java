@@ -39,9 +39,7 @@ public class HomePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
-
-        //GETTING RECYCLER VIEW LIST
+        setContentView(R.layout.activity_home_page)//GETTING RECYCLER VIEW LIST
         rv = findViewById(R.id.group_recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -91,7 +89,7 @@ public class HomePageActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
-                        switch(item.getItemId()){
+                        switch (item.getItemId()) {
                             case R.id.my_shifts:
                                 Intent myShiftsPage = new Intent(getApplicationContext(), MyShifts.class);
                                 startActivity(myShiftsPage);
@@ -114,7 +112,6 @@ public class HomePageActivity extends AppCompatActivity {
         );
 
 
-
         //GETTING TOOLBAR
         mDrawerLayout = findViewById(R.id.drawer_layout);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -135,11 +132,11 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
-    private void initializeData(){
+    private void initializeData() {
         groups = new ArrayList<>();
     }
 
-    private void initializeAdapter(){
+    private void initializeAdapter() {
         GroupRVAdapter adapter = new GroupRVAdapter(groups, this);
         rv.setAdapter(adapter);
     }
@@ -153,7 +150,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 //USER CHOSE SETTINGS ITEM, CHANGE TO APP SETTINGS SCREEN
                 mDrawerLayout.openDrawer(GravityCompat.START);

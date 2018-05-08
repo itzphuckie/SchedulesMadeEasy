@@ -15,12 +15,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-/**
- * Created by agaa2 on 4/15/2018.
- */
 
 public class ShiftRVAdapter extends RecyclerView.Adapter<ShiftRVAdapter.GroupViewHolder>{
-    public static class GroupViewHolder extends RecyclerView.ViewHolder{
+    public static class ShiftViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
         TextView companyName;
         TextView dayOfWeek;
@@ -52,14 +49,14 @@ public class ShiftRVAdapter extends RecyclerView.Adapter<ShiftRVAdapter.GroupVie
     }
 
     @Override
-    public GroupViewHolder onCreateViewHolder(ViewGroup viewGroup, int i ){
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.group_card_view, viewGroup, false);
-        GroupViewHolder gvh = new GroupViewHolder(v);
-        return gvh;
+    public ShiftViewHolder onCreateViewHolder(ViewShift viewShift, int i ){
+        View v = LayoutInflater.from(viewShift.getContext()).inflate(R.layout.shift_card_view, viewShift, false);
+        ShiftViewHolder svh = new ShiftViewHolder(v);
+        return svh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GroupViewHolder holder,final int position) {
+    public void onBindViewHolder(@NonNull ShiftViewHolder holder,final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
         holder.companyName.setText(shifts.get(position).getCompany());
         String dayOfWeek = "Day: " + shifts.get(position).getDay();

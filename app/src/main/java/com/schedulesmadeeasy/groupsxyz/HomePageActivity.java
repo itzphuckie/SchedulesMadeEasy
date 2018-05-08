@@ -96,7 +96,7 @@ public class HomePageActivity extends AppCompatActivity {
                                 break;
 
                             case R.id.action_settings:
-<<<<<<< HEAD
+
                                 Intent settingsPage = new Intent(getApplicationContext(), MySettingsActivity.class);
                                 startActivity(settingsPage);
                                 break;
@@ -107,21 +107,13 @@ public class HomePageActivity extends AppCompatActivity {
                                 startActivity(groupPage);
                                 break;
 
-                            /**
-                             case R.id.my_availability:
-                             Intent availabilityPage = new Intent(getApplicationContext(), myAvailability.class);
-                             startActivity(availabilityPage);
-                             break;
-                             */
-=======
-                                Intent intent = new Intent(getApplicationContext(), MySettingsActivity.class);
-                                startActivity(intent);
-                                break;
+
                             case R.id.my_availability:
-                                Intent intent1 = new Intent(getApplicationContext(), myAvailability.class);
-                                startActivity(intent1);
+                                Intent availabilityPage = new Intent(getApplicationContext(), myAvailability.class);
+                                startActivity(availabilityPage);
                                 break;
->>>>>>> phuc
+
+
                         }
                         return true;
                     }

@@ -104,21 +104,23 @@ public class MyShifts extends AppCompatActivity {
                                 break;
 
                             case R.id.action_settings:
+
                                 Intent settingsPage = new Intent(getApplicationContext(), MySettingsActivity.class);
                                 startActivity(settingsPage);
                                 break;
+
 
                             case R.id.my_groups:
                                 Intent groupPage = new Intent(getApplicationContext(), HomePageActivity.class);
                                 startActivity(groupPage);
                                 break;
 
-/**
+
                             case R.id.my_availability:
                                 Intent availabilityPage = new Intent(getApplicationContext(), myAvailability.class);
                                 startActivity(availabilityPage);
                                 break;
- */
+
 
                         }
                         return true;

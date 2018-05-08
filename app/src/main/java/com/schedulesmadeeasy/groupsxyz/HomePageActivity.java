@@ -39,7 +39,7 @@ public class HomePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page)//GETTING RECYCLER VIEW LIST
+        setContentView(R.layout.activity_home_page);//GETTING RECYCLER VIEW LIST
         rv = findViewById(R.id.group_recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -100,11 +100,18 @@ public class HomePageActivity extends AppCompatActivity {
                                 startActivity(settingsPage);
                                 break;
 
-                            case R.id.my_availability:
-                                Intent availabilityPage = new Intent(getApplicationContext(), PLACEHOLDER.class);
-                                startActivity(availabilityPage);
+
+                            case R.id.my_groups:
+                                Intent groupPage = new Intent(getApplicationContext(), HomePageActivity.class);
+                                startActivity(groupPage);
                                 break;
 
+                            /**
+                             case R.id.my_availability:
+                             Intent availabilityPage = new Intent(getApplicationContext(), myAvailability.class);
+                             startActivity(availabilityPage);
+                             break;
+                             */
                         }
                         return true;
                     }

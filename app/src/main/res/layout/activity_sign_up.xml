@@ -111,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:imeOptions="actionDone"
                 app:layout_constraintStart_toStartOf="@+id/textViewPassword2"
                 app:layout_constraintTop_toBottomOf="@+id/textViewPassword2" />
 

@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -36,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         sPasswordCount = 0;
         mUserName = findViewById(R.id.user_name_edit_text);
         mPassword = findViewById(R.id.password_edit_text);
+
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -74,6 +78,20 @@ public class LoginActivity extends AppCompatActivity {
                     mPassword.setText("");
                     sPasswordCount++;
                 }
+            }
+        });
+
+        mPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if(actionId == EditorInfo.IME_ACTION_DONE){
+                    String userName = mUserName.getText().toString();
+                    String passWord = mPassword.getText().toString();
+                    signIn(userName, passWord);
+                    handled = true;
+                }
+                return handled;
             }
         });
     }

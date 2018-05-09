@@ -44,7 +44,7 @@ public class MyShifts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_shifts);
         rv = findViewById(R.id.shift_recycler_view);
-        Log.d(TAG, "STARTING LAYOUTMNAGER");
+        Log.d(TAG, "STARTING LAYOUT MANAGER");
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         initializeData();

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/three_bar"
+            android:id="@+id/my_groups"
             android:layout_width="match_parent"
             android:icon="@drawable/ic_group_black_24dp"
             android:layout_gravity="left"

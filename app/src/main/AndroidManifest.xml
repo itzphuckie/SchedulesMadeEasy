@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MyShifts">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +22,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SetUpActivity" />
         <activity android:name=".AddGroupActivity" />
+        <activity android:name=".myAvailability" />
         <activity
             android:name=".ManagerScheduleActivity"
             android:label="@string/title_activity_manager_schedule"
@@ -29,7 +30,8 @@
         <activity
             android:name=".MemberScheduleActivity"
             android:label="@string/title_activity_member_schedules"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

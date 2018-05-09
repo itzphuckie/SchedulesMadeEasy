@@ -230,6 +230,11 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
                                 startActivity(availabilityPage);
                                 break;
 
+                            case R.id.requests:
+                                Intent requestsPage = new Intent(getApplicationContext(), RequestActivity.class);
+                                startActivity(requestsPage);
+                                break;
+
 
                         }
                         return true;

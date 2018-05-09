@@ -24,12 +24,6 @@
             android:title="@string/my_availability"
             app:showAsAction="never"/>
         <item
-            android:id="@+id/notifications"
-            android:layout_width="match_parent"
-            android:icon="@drawable/ic_drafts_black_24dp"
-            android:title="@string/notifications"
-            app:showAsAction="never"/>
-        <item
             android:id="@+id/requests"
             android:layout_width="match_parent"
             android:icon="@drawable/ic_sort_black_24dp"

@@ -8,6 +8,22 @@
     tools:context="com.schedulesmadeeasy.groupsxyz.ManagerScheduleActivity"
     tools:showIn="@layout/activity_manager_schedule">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="328dp"
+        android:text="Enter Member Username Below"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Enter Member Username Below" />
+
     <Button
         android:id="@+id/addMemberButton"
         android:layout_width="wrap_content"

@@ -4,14 +4,20 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +34,7 @@ import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 
 public class ManagerScheduleActivity extends AppCompatActivity {
+    private DrawerLayout mDrawerLayout;
     private EditText mUsernameEditText;
     private Button   mAddUsernameButton;
     private String mID;
@@ -43,7 +50,7 @@ public class ManagerScheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_schedule);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar_manager_schedules);
         setSupportActionBar(toolbar);
         Log.d(TAG, "IN APP MANAGER");
 
@@ -127,6 +134,58 @@ public class ManagerScheduleActivity extends AppCompatActivity {
             }
         });
         */
+
+        final NavigationView navigationView = findViewById(R.id.nav_view_manager_schedules);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener()
+
+                {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        item.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        switch (item.getItemId()) {
+                            case R.id.my_shifts:
+                                Intent myShiftsPage = new Intent(getApplicationContext(), MyShifts.class);
+                                startActivity(myShiftsPage);
+                                break;
+
+                            case R.id.action_settings:
+
+                                Intent settingsPage = new Intent(getApplicationContext(), MySettingsActivity.class);
+                                startActivity(settingsPage);
+                                break;
+
+
+                            case R.id.my_groups:
+                                Intent groupPage = new Intent(getApplicationContext(), HomePageActivity.class);
+                                startActivity(groupPage);
+                                break;
+
+
+                            case R.id.my_availability:
+                                Intent availabilityPage = new Intent(getApplicationContext(), myAvailability.class);
+                                startActivity(availabilityPage);
+                                break;
+
+
+                        }
+                        return true;
+                    }
+                }
+        );
+
+
+        //GETTING TOOLBAR
+        mDrawerLayout = findViewById(R.id.drawer_layout_manager_schedules);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar_manager_schedules);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+
     }
 
     private void addUserToGroup(){
@@ -180,6 +239,22 @@ public class ManagerScheduleActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //USER CHOSE SETTINGS ITEM, CHANGE TO APP SETTINGS SCREEN
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+
+            default:
+                //USER'S ACTION WAS NOT RECOGNIZED.
+                //INVOKE THE SUPERCLASS TO HANDLE IT.
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

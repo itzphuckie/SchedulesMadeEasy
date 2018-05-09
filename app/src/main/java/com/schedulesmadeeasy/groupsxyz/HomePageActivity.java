@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +36,7 @@ public class HomePageActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference mRef;
+    private TextView mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class HomePageActivity extends AppCompatActivity {
         //initializeData();
         initializeData();
         initializeAdapter();
+
+        mTitle = findViewById(R.id.titleTextView);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -59,6 +63,9 @@ public class HomePageActivity extends AppCompatActivity {
                 System.out.println(newGroup.getTitle());
                 groups.add(0, newGroup);
                 rv.getAdapter().notifyItemInserted(0);
+                if(groups.isEmpty()){
+                    mTitle.setText(R.string.empty_groups);
+                }
             }
 
             @Override
@@ -81,6 +88,7 @@ public class HomePageActivity extends AppCompatActivity {
 
             }
         });
+
 
         final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(

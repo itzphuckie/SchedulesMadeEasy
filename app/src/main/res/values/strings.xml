@@ -37,6 +37,11 @@
 
     <!-- end MAIN SCREEN -->
 
+    <!-- start MyGroups -->
+    <string name="empty_groups">You currently do not have any groups, to add a group, click the plus button on the bottom right. If you need to be added to a group, ask you manager to add you via username." </string>
+    <string name="non_empty_groups"></string>
+    <!-- end MyGroups -->
+
     <!-- start MENU ITEMS -->
     <string name="my_groups_nav">My Groups</string>
     <string name="action_settings">Settings</string>

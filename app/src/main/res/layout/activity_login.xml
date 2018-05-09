@@ -42,10 +42,11 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text|textPersonName"
-        android:text="@string/placeholder_user_name"
+        android:selectAllOnFocus="true"
+        android:text="enteremailhere@gmail.com"
         app:layout_constraintStart_toStartOf="@id/user_name_text_view"
         app:layout_constraintTop_toBottomOf="@id/user_name_text_view"
-        tools:text="@string/placeholder_user_name" />
+        tools:text="enteremailhere@gmail.com" />
 
     <TextView
         android:id="@+id/password_text_view"
@@ -69,6 +70,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
+        android:selectAllOnFocus="true"
         android:text="@string/placeholder_login"
         app:layout_constraintStart_toStartOf="@id/password_text_view"
         app:layout_constraintTop_toBottomOf="@id/password_text_view"

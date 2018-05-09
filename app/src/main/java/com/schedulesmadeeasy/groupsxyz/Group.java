@@ -21,6 +21,11 @@ public class Group {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Title: %s\nMembers: %s, Status: %s, ID: %s", title, members, status, id);
+    }
+
     public String getTitle() {
         return title;
     }

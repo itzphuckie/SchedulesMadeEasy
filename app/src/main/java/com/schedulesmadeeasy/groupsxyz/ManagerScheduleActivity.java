@@ -1,6 +1,7 @@
 package com.schedulesmadeeasy.groupsxyz;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -96,6 +97,23 @@ public class ManagerScheduleActivity extends AppCompatActivity {
                 Log.d(TAG, "KEY: " + key);
                 if(key == null){
                     Toast.makeText(getApplicationContext(), "USERNAME DOESN'T EXIST",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    //IF KEY EXISTS ADD USER TO GROUP
+                    //TODO MAKE SURE USERNAME IS NOT SELF
+                    String pushReference = "users/" + key + "/groups/" + mGroup.id;
+                    Log.d(TAG, "REFERENCE: " + pushReference);
+                    Log.d(TAG, "GROUP\n" + mGroup.toString());
+                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(pushReference);
+                    int groupMembers = Integer.parseInt(mGroup.getMembers()) + 1;
+                    Group memberGroup = new Group(mGroup.title, groupMembers + "", "Member", mGroup.id);
+                    userRef.setValue(memberGroup);
+                    //ADD ONE TO YOUR OWN GROUP
+                    pushReference = "users/" + mUser.getUid() + "/groups/" + mGroup.id;
+                    userRef = FirebaseDatabase.getInstance().getReference(pushReference);
+                    Group managerGroup = new Group(mGroup.title, groupMembers + "", "Manager", mGroup.id);
+                    userRef.setValue(managerGroup);
+                    Toast.makeText(getApplicationContext(), "USERNAME ADDED",
                             Toast.LENGTH_SHORT).show();
                 }
             }

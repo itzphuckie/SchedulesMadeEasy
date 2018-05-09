@@ -8,9 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,6 +66,30 @@ public class SignUpActivity extends AppCompatActivity {
                     mPassword.setText("");
                     sPasswordCount++;
                 }
+            }
+        });
+
+        mPassword2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if(actionId == EditorInfo.IME_ACTION_DONE){
+                    String userName = mUserName.getText().toString();
+                    String passWord = mPassword.getText().toString();
+                    if(passWord.equals(mPassword2.getText().toString())){
+                        signUp(userName, passWord);
+                    }else {
+                        Toast.makeText(SignUpActivity.this, "Passwords do not match.",
+                                Toast.LENGTH_LONG).show();
+                        mPassword.setText("");
+                        mPassword2.setText("");
+                        mUserName.clearFocus();
+                        mPassword.clearFocus();
+                        mPassword2.clearFocus();
+                    }
+                    handled = true;
+                }
+                return handled;
             }
         });
 

@@ -13,8 +13,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +37,8 @@ public class HomePageActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference mRef;
+    private TextView mTitle;
+    private final static String TAG = "MYGROUPS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +51,17 @@ public class HomePageActivity extends AppCompatActivity {
         initializeData();
         initializeAdapter();
 
+        mTitle = findViewById(R.id.titleTextView);
+
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         String reference = "users/" + mUser.getUid() + "/groups";
         mRef = FirebaseDatabase.getInstance().getReference(reference);
+
+        if(groups.isEmpty()){
+            mTitle.setText(R.string.empty_groups);
+            Log.d(TAG, "EMPTY");
+        }
 
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -59,11 +70,23 @@ public class HomePageActivity extends AppCompatActivity {
                 System.out.println(newGroup.getTitle());
                 groups.add(0, newGroup);
                 rv.getAdapter().notifyItemInserted(0);
+                mTitle.setVisibility(View.GONE);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                Group modifiedGroup = dataSnapshot.getValue(Group.class);
+                int index = -1;
+                for (int i = 0; i < groups.size(); i++) {
+                    if(modifiedGroup.getId().equals(groups.get(i).getId())){
+                        index = i;
+                    }
+                }
+                if(index >= 0){
+                    groups.get(index).setMembers(modifiedGroup.getMembers());
+                    rv.getAdapter().notifyItemChanged(index);
+                }
+                
             }
 
             @Override
@@ -81,6 +104,7 @@ public class HomePageActivity extends AppCompatActivity {
 
             }
         });
+
 
         final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
@@ -126,6 +150,7 @@ public class HomePageActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle(R.string.title_my_groups);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);

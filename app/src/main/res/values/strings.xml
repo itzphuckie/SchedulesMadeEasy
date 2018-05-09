@@ -37,6 +37,12 @@
 
     <!-- end MAIN SCREEN -->
 
+    <!-- start MyGroups -->
+    <string name="title_my_groups">My Groups</string>
+    <string name="empty_groups">You currently do not have any groups, to add a group, click the plus button on the bottom right. If you need to be added to a group, ask you manager to add you via username." </string>
+    <string name="non_empty_groups"></string>
+    <!-- end MyGroups -->
+
     <!-- start MENU ITEMS -->
     <string name="my_groups_nav">My Groups</string>
     <string name="action_settings">Settings</string>
@@ -48,9 +54,11 @@
     <string name="title_activity_member_schedules">MemberSchedulesActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_settings">SettingsTest</string>
-
     <!-- Strings related to Settings -->
 
+    <!-- start Settings -->
+    <string name="title_setttings">Settings</string>
+    <!-- end Settings -->
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 
@@ -213,8 +221,12 @@
     <!-- end MENU ITEMS -->
 
     <!-- start MY SHIFTS -->
-    <string name="s">My Groups</string>
+    <string name="title_my_shifts">My Shifts</string>
     <!-- end MY SHIFTS -->
 
+    <!-- start MY AVAILABILITY -->
+    <string name="title_my_availability">My Availability</string>
+    <string name ="confirm_button_my_availability">Confirm</string>
+    <!-- end MY AVAILABILITY -->
 
 </resources>

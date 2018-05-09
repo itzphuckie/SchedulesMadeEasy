@@ -163,32 +163,32 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View v) {
                 String mondayStart = spin.getSelectedItem().toString();
                 String mondayEnd = spin10.getSelectedItem().toString();
-                Toast.makeText(myAvailability.this, "Monday: " + mondayStart + " - " + mondayEnd,
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(myAvailability.this, "Monday: " + mondayStart + " - " + mondayEnd,
+                //        Toast.LENGTH_SHORT).show();
                 mRef.child("Monday").setValue(mondayStart + "-" + mondayEnd);
 
                 String tuesdayStart = spin3.getSelectedItem().toString();
                 String tuesdayEnd = spin2.getSelectedItem().toString();
-                Toast.makeText(myAvailability.this, "Tuesday: " + tuesdayStart + " - " + tuesdayEnd,
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(myAvailability.this, "Tuesday: " + tuesdayStart + " - " + tuesdayEnd,
+                //        Toast.LENGTH_SHORT).show();
                 mRef.child("Tuesday").setValue(tuesdayStart + "-" + tuesdayEnd);
 
                 String wednesdayStart = spin5.getSelectedItem().toString();
                 String wednesdayEnd = spin6.getSelectedItem().toString();
-                Toast.makeText(myAvailability.this, "Wednesday: " + wednesdayStart + " - " + wednesdayEnd,
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(myAvailability.this, "Wednesday: " + wednesdayStart + " - " + wednesdayEnd,
+                //        Toast.LENGTH_SHORT).show();
                 mRef.child("Wednesday").setValue(wednesdayStart + "-" + wednesdayEnd);
 
                 String thursdayStart = spin4.getSelectedItem().toString();
                 String thursdayEnd = spin7.getSelectedItem().toString();
-                Toast.makeText(myAvailability.this, "Thursday: " + thursdayStart + " - " + thursdayEnd,
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(myAvailability.this, "Thursday: " + thursdayStart + " - " + thursdayEnd,
+                //        Toast.LENGTH_SHORT).show();
                 mRef.child("Thursday").setValue(thursdayStart + "-" + thursdayEnd);
 
                 String fridayStart = spin9.getSelectedItem().toString();
                 String fridayEnd = spin8.getSelectedItem().toString();
-                Toast.makeText(myAvailability.this, "Friday: " + fridayStart + " - " + fridayEnd,
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(myAvailability.this, "Friday: " + fridayStart + " - " + fridayEnd,
+                //        Toast.LENGTH_SHORT).show();
                 mRef.child("Friday").setValue(fridayStart + "-" + fridayEnd);
                 Intent confirm = new Intent(getApplicationContext(), HomePageActivity.class);
                 startActivity(confirm);
@@ -243,6 +243,7 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar_my_availability);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle(R.string.title_my_availability);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -254,7 +255,7 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
     //Performing action onItemSelected and onNothing selected
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(), time[position], Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), time[position], Toast.LENGTH_LONG).show();
     }
 
     @Override

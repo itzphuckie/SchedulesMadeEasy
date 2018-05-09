@@ -23,6 +23,7 @@
         <activity android:name=".SetUpActivity" />
         <activity android:name=".AddGroupActivity" />
         <activity android:name=".myAvailability" />
+        <activity android:name=".RequestActivity" />
         <activity
             android:name=".ManagerScheduleActivity"
             android:label="@string/title_activity_manager_schedule"

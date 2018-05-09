@@ -1,18 +1,41 @@
 package com.schedulesmadeeasy.groupsxyz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MemberScheduleActivity extends AppCompatActivity {
-    SpeedDialView mSpeedDialView;
+    private SpeedDialView mSpeedDialView;
+    private List<Shift> shifts;
+    private DrawerLayout mDrawerLayout;
+    private RecyclerView rv;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private DatabaseReference mRef;
     private String mID;
     private String mTitle;
 
@@ -23,6 +46,12 @@ public class MemberScheduleActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        rv = findViewById(R.id.shift_recycler_view_members);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        initializeData();
+        initializeAdapter();
+
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
@@ -30,11 +59,45 @@ public class MemberScheduleActivity extends AppCompatActivity {
             mTitle = extras.getString("TITLE");
         }
 
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        String reference = "users/" + mUser.getUid() + "/groups/" + mID + "/shifts";
+        mRef = FirebaseDatabase.getInstance().getReference(reference);
+
+        mRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Shift newShift = dataSnapshot.getValue(Shift.class);
+                shifts.add(0, newShift);
+                rv.getAdapter().notifyItemInserted(0);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         //FAB
         mSpeedDialView = findViewById(R.id.speedDialManagerMember);
-        mSpeedDialView.setMainFabCloseBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark,
+        mSpeedDialView.setMainFabOpenBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark,
                 getTheme()));
-        mSpeedDialView.setMainFabOpenBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary,
+        mSpeedDialView.setMainFabCloseBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary,
                 getTheme()));
 
         mSpeedDialView.addActionItem(new SpeedDialActionItem.Builder(R.id.fab_my_availability, R.drawable.ic_availability_white_24dp)
@@ -46,6 +109,28 @@ public class MemberScheduleActivity extends AppCompatActivity {
             .setLabel("Requests")
             .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorFABREQUESTS, getTheme()))
             .create());
+
+        mSpeedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
+            @Override
+            public boolean onActionSelected(SpeedDialActionItem actionItem) {
+                switch(actionItem.getId()){
+                    case R.id.fab_my_availability:
+                        Intent myAvailability = new Intent(getApplicationContext(), myAvailability.class);
+                        myAvailability.putExtra("ID", mID);
+                        myAvailability.putExtra("TITLE", mTitle);
+                        startActivity(myAvailability);
+                        return false;
+                    case R.id.fab_requests_member:
+                        Intent requests_member = new Intent(getApplicationContext(), RequestActivity.class);
+                        requests_member.putExtra("ID", mID);
+                        requests_member.putExtra("ID", mTitle);
+                        startActivity(requests_member);
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +141,26 @@ public class MemberScheduleActivity extends AppCompatActivity {
             }
         });
         */
+    }
+
+    private void initializeData() {
+        shifts = new ArrayList<>();
+    }
+
+    private void initializeAdapter(){
+        ShiftRVAdapter adapter = new ShiftRVAdapter(shifts, this);
+        rv.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

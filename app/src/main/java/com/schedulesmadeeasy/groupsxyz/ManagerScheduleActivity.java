@@ -120,7 +120,16 @@ public class ManagerScheduleActivity extends AppCompatActivity {
                 switch(actionItem.getId()){
                     case R.id.fab_add_member:
                         Toast.makeText(getApplicationContext(), "CLICKED", Toast.LENGTH_SHORT).show();
-                        Intent addMemberPage = new Intent(getApplicationContext(), )
+                        Intent addMemberPage = new Intent(getApplicationContext(), AddMember.class);
+                        addMemberPage.putExtra("ID", mID);
+                        addMemberPage.putExtra("TITLE", mTitle);
+                        startActivity(addMemberPage);
+                        return false;
+                    case R.id.fab_custom_color:
+                        Intent nextFab = new Intent(getApplicationContext(), ManagerAssignShift.class);
+                        nextFab.putExtra("ID", mID);
+                        nextFab.putExtra("TITLE", mTitle);
+                        startActivity(nextFab);
                         return false;
                     default:
                         return false;

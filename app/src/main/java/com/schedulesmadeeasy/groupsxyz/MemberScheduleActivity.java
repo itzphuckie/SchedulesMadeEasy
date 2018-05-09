@@ -128,7 +128,7 @@ public class MemberScheduleActivity extends AppCompatActivity {
                     case R.id.fab_requests_member:
                         Intent requests_member = new Intent(getApplicationContext(), RequestActivity.class);
                         requests_member.putExtra("ID", mID);
-                        requests_member.putExtra("ID", mTitle);
+                        requests_member.putExtra("TITLE", mTitle);
                         startActivity(requests_member);
                         return false;
                     default:

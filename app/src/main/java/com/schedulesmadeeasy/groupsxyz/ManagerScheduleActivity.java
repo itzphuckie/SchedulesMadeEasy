@@ -1,5 +1,6 @@
 package com.schedulesmadeeasy.groupsxyz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;

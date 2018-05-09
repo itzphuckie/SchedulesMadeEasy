@@ -1,7 +1,6 @@
 package com.schedulesmadeeasy.groupsxyz;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -13,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -27,39 +27,47 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePageActivity extends AppCompatActivity {
+public class MyShifts extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
-    private List<Group> groups;
+    private List<Shift> shifts;
     private RecyclerView rv;
     private FloatingActionButton fab;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference mRef;
+    private final String TAG = "MYSHIFTS";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);//GETTING RECYCLER VIEW LIST
-        rv = findViewById(R.id.group_recycler_view);
+        setContentView(R.layout.activity_my_shifts);
+        rv = findViewById(R.id.shift_recycler_view);
+        Log.d(TAG, "STARTING LAYOUT MANAGER");
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        //initializeData();
         initializeData();
         initializeAdapter();
+        Log.d(TAG, "ENDING ADAPTER STUFF");
+
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        String reference = "users/" + mUser.getUid() + "/groups";
+        String reference = "users/" + mUser.getUid() + "/shifts";
         mRef = FirebaseDatabase.getInstance().getReference(reference);
 
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
+
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Group newGroup = dataSnapshot.getValue(Group.class);
+               /** Group newGroup = dataSnapshot.getValue(Group.class);
                 System.out.println(newGroup.getTitle());
-                groups.add(0, newGroup);
+                shifts.add(0, newGroup);
                 rv.getAdapter().notifyItemInserted(0);
+                */
             }
+
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
@@ -82,7 +90,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        final NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view_my_shifts);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -122,8 +130,8 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         //GETTING TOOLBAR
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        mDrawerLayout = findViewById(R.id.drawer_layout_my_shifts);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar_my_shifts);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -131,31 +139,20 @@ public class HomePageActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AddGroupActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
     }
 
+
+
     private void initializeData() {
-        groups = new ArrayList<>();
+        shifts = new ArrayList<>();
     }
 
     private void initializeAdapter() {
-        GroupRVAdapter adapter = new GroupRVAdapter(groups, this);
+        ShiftRVAdapter adapter = new ShiftRVAdapter(shifts,this);
         rv.setAdapter(adapter);
     }
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.home_page_activity_menu, menu);
-        return true;
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -171,4 +168,6 @@ public class HomePageActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

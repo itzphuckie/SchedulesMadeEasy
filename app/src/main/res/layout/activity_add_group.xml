@@ -38,7 +38,7 @@
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Title" />
+        tools:text="Enter Group Name Below" />
 
     <EditText
         android:id="@+id/titleAddGroupEditText"

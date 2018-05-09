@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManagerAssignShift">
+
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Friday"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Monday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/managerAssignShift" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="32dp"
+        android:text="Thursday"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+
+    <TextView
+        android:id="@+id/managerAssignShift"
+        android:layout_width="378dp"
+        android:layout_height="139dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="This is where you add the members"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpinnerManager6" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager7"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/timeSpinnerManager2"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpinnerManager" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager6"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timeSpinnerManager5"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpinnerManager5" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager5"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timeSpinnerManager2"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpinnerManager2" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager4"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timeSpinnerManager2"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager3"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timeSpinnerManager2"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <Spinner
+        android:id="@+id/timeSpinnerManager2"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/managerAssignShift" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="32dp"
+        android:text="Tuesday"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="32dp"
+        android:text="Wenesday"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:text="Confirm Schedule"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/shiftSpinnerManager"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager4"
+        app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager4" />
+
+    <Spinner
+        android:id="@+id/shiftSpinnerManager3"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager"
+        app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager2"
+        app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager2" />
+
+    <Spinner
+        android:id="@+id/shiftSpinnerManager5"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager7"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager3"
+        app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager3" />
+
+    <Spinner
+        android:id="@+id/shiftSpinnerManager2"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager"
+        app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager" />
+
+    <Spinner
+        android:id="@+id/shiftSpinnerManager4"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager2"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/managerAssignShift" />
+
+</android.support.constraint.ConstraintLayout>

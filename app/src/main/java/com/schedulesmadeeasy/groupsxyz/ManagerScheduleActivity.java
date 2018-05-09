@@ -129,6 +129,10 @@ public class ManagerScheduleActivity extends AppCompatActivity {
                                 startActivity(availabilityPage);
                                 break;
 
+                            case R.id.requests:
+                                Intent requestsPage = new Intent(getApplicationContext(), RequestActivity.class);
+                                startActivity(requestsPage);
+                                break;
 
                         }
                         return true;

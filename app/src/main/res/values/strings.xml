@@ -229,4 +229,8 @@
     <string name ="confirm_button_my_availability">Confirm</string>
     <!-- end MY AVAILABILITY -->
 
+    <!-- start Requests -->
+    <string name="title_requests">Requests</string>
+    <!-- end Requests -->
+
 </resources>

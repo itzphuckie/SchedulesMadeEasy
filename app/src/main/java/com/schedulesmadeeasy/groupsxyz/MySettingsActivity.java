@@ -10,15 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 public class MySettingsActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_settings);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
         final NavigationView navigationView = findViewById(R.id.nav_view_my_settings);
@@ -52,6 +56,11 @@ public class MySettingsActivity extends AppCompatActivity {
                             case R.id.my_availability:
                                 Intent availabilityPage = new Intent(getApplicationContext(), myAvailability.class);
                                 startActivity(availabilityPage);
+                                break;
+
+                            case R.id.requests:
+                                Intent requestsPage = new Intent(getApplicationContext(), RequestActivity.class);
+                                startActivity(requestsPage);
                                 break;
 
 

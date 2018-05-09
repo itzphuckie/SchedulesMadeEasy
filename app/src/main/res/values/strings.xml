@@ -226,7 +226,7 @@
 
     <!-- start MY AVAILABILITY -->
     <string name="title_my_availability">My Availability</string>
-    <string name ="confirm_button_my_availability">Confirm</string>
+    <string name="confirm_button_my_availability">Confirm</string>
     <!-- end MY AVAILABILITY -->
 
     <!-- start Requests -->

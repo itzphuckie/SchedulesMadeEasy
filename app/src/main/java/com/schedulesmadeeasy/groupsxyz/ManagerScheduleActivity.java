@@ -61,7 +61,7 @@ public class ManagerScheduleActivity extends AppCompatActivity {
         }
 
         mUsernameEditText = findViewById(R.id.addMemberEditText);
-        mAddUsernameButton = findViewById(R.id.addMemberButton);
+        //mAddUsernameButton = findViewById(R.id.addMemberButton);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         String reference = "users/" + mUser.getUid() + "/groups/" + mID;
@@ -81,6 +81,7 @@ public class ManagerScheduleActivity extends AppCompatActivity {
             }
         });
 
+        /*
         mAddUsernameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +90,7 @@ public class ManagerScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        */
 
         //FAB
         mSpeedDialView = findViewById(R.id.speedDialManager);
@@ -118,12 +120,15 @@ public class ManagerScheduleActivity extends AppCompatActivity {
                 switch(actionItem.getId()){
                     case R.id.fab_add_member:
                         Toast.makeText(getApplicationContext(), "CLICKED", Toast.LENGTH_SHORT).show();
+                        Intent addMemberPage = new Intent(getApplicationContext(), )
                         return false;
                     default:
                         return false;
                 }
             }
         });
+
+
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

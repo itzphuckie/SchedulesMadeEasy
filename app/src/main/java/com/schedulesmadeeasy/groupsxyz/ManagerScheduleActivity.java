@@ -1,11 +1,14 @@
 package com.schedulesmadeeasy.groupsxyz;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,12 +24,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialView;
 
 public class ManagerScheduleActivity extends AppCompatActivity {
     private EditText mUsernameEditText;
     private Button   mAddUsernameButton;
     private String mID;
     private String mTitle;
+    private SpeedDialView mSpeedDialView;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference mRef;
@@ -46,6 +52,7 @@ public class ManagerScheduleActivity extends AppCompatActivity {
             mID = extras.getString("ID");
             mTitle = extras.getString("TITLE");
         }
+
         mUsernameEditText = findViewById(R.id.addMemberEditText);
         mAddUsernameButton = findViewById(R.id.addMemberButton);
         mAuth = FirebaseAuth.getInstance();
@@ -76,6 +83,41 @@ public class ManagerScheduleActivity extends AppCompatActivity {
             }
         });
 
+        //FAB
+        mSpeedDialView = findViewById(R.id.speedDialManager);
+        mSpeedDialView.setMainFabOpenBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getTheme()));
+        mSpeedDialView.setMainFabCloseBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, getTheme()));
+
+        mSpeedDialView.addActionItem(new SpeedDialActionItem.Builder(R.id.fab_add_member, R.drawable.ic_add_member_white_24dp)
+                .setLabel("Add Member")
+                .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorFABADD, getTheme()))
+                .create());
+
+        Drawable drawable = AppCompatResources.getDrawable(ManagerScheduleActivity.this, R.drawable.ic_alarm_on_black_24dp);
+        mSpeedDialView.addActionItem(new SpeedDialActionItem.Builder(R.id.fab_custom_color, drawable)
+                .setLabel("Assign Shifts")
+                .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorFABRED, getTheme()))
+                .create());
+
+        mSpeedDialView.addActionItem(new SpeedDialActionItem.Builder(R.id.fab_requests, R.drawable.ic_priority_high_black_24dp)
+            .setLabel("Requests")
+            .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorFABREQUESTS, getTheme()))
+            .create());
+
+
+        mSpeedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
+            @Override
+            public boolean onActionSelected(SpeedDialActionItem actionItem) {
+                switch(actionItem.getId()){
+                    case R.id.fab_add_member:
+                        Toast.makeText(getApplicationContext(), "CLICKED", Toast.LENGTH_SHORT).show();
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +126,7 @@ public class ManagerScheduleActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
     }
 
     private void addUserToGroup(){

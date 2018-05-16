@@ -9,6 +9,69 @@
 
 
     <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="N (3-9)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="N (3-9)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="N (3-9)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="400dp" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="N (3-9)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="455dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="N (3-9)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="260dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="M ( 9-3)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="M ( 9-3)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <TextView
         android:id="@+id/textView21"
         android:layout_width="79dp"
         android:layout_height="23dp"
@@ -162,8 +225,6 @@
         android:layout_width="82dp"
         android:layout_height="24dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager5"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager4"
         app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager4" />
 
@@ -171,9 +232,7 @@
         android:id="@+id/shiftSpinnerManager3"
         android:layout_width="82dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager2"
         app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager2" />
 
@@ -182,21 +241,17 @@
         android:layout_width="82dp"
         android:layout_height="24dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager7"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager3"
-        app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager3" />
+        app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/shiftSpinnerManager2"
         android:layout_width="82dp"
         android:layout_height="24dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager6"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/shiftSpinnerManager"
         app:layout_constraintTop_toBottomOf="@+id/shiftSpinnerManager" />
 
@@ -206,9 +261,34 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/timeSpinnerManager2"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/managerAssignShift" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="M ( 9-3)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="400dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="M ( 9-3)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="455dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="M ( 9-3)"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="349dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -53,7 +53,7 @@ public class AddGroupActivity extends AppCompatActivity {
         DatabaseReference groupRef = mRefUserGroups.push();
         groupRef.setValue(new Group(title, "1", "Manager", groupRef.getKey()));
         //TODO ADD ON SUCCESS LISTENER
-        mRefGroupInfo.child(groupRef.getKey()+"/members/"+mUser.getDisplayName()).setValue("Manager",
+        mRefGroupInfo.child(groupRef.getKey()+"/members/"+mUser.getUid()).setValue("Manager",
                 new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {

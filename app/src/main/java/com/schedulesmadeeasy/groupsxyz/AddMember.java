@@ -75,7 +75,7 @@ public class AddMember extends AppCompatActivity {
     }
 
     private void addUserToGroup(){
-        String username = mUsernameEditText.getText().toString();
+        final String username = mUsernameEditText.getText().toString();
         String reference = "usernames/" + username;
         DatabaseReference usernamesRef = FirebaseDatabase.getInstance().getReference(reference);
         usernamesRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -97,13 +97,18 @@ public class AddMember extends AppCompatActivity {
                     int groupMembers = Integer.parseInt(mGroup.getMembers()) + 1;
                     Group memberGroup = new Group(mGroup.title, groupMembers + "", "Member", mGroup.id);
                     userRef.setValue(memberGroup);
+
                     //ADD ONE TO YOUR OWN GROUP
                     pushReference = "users/" + mUser.getUid() + "/groups/" + mGroup.id;
                     userRef = FirebaseDatabase.getInstance().getReference(pushReference);
                     Group managerGroup = new Group(mGroup.title, groupMembers + "", "Manager", mGroup.id);
                     userRef.setValue(managerGroup);
-                    Toast.makeText(getApplicationContext(), "USERNAME ADDED",
-                            Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "USERNAME ADDED",
+                    //        Toast.LENGTH_SHORT).show();
+                    //POSTING USERNAME TO GROUPS LIST OF USER NAMES
+                    String userNameRef = "groups/" + mID + "/members/" + key;
+                    userRef = FirebaseDatabase.getInstance().getReference(userNameRef);
+                    userRef.setValue("Member");
                 }
             }
 

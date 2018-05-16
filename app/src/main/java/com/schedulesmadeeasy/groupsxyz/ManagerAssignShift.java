@@ -19,6 +19,7 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
             "4:30 P.M.", "5:00 P.M.", "5:30 P.M.", "6:00 P.M.", "6:30 P.M.", "7:00 P.M.", "7:30 P.M.", "8:00 P.M.", "8:30 P.M.", "9:00 P.M.",
             "9:30 P.M.", "10:00 P.M.", "10:30 P.M.", "11:00 P.M.", "11:30 P.M."
             };
+
     String[] shifts = {"N/A", "M(9-3)", "M(3-9)"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {

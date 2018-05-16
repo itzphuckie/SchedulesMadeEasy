@@ -10,6 +10,10 @@ import android.widget.Spinner;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+
 public class ManagerAssignShift extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private DrawerLayout mDrawerLayout;
     String[] time = {"N/A", "12:00 A.M.", "12:30 A.M.", "1:00 A.M.", "1:30 A.M.", "2:00 A.M.", "2:30 A.M.", "3:00 A.M.", "3:30 A.M.", "4:00 A.M.",
@@ -21,10 +25,32 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
             };
 
     String[] shifts = {"N/A", "M(9-3)", "M(3-9)"};
+
+
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private DatabaseReference mRef;
+    private String mID;
+    private String mTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_assign_shift);
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            mID = extras.getString("ID");
+            mTitle = extras.getString("TITLE");
+        }
+        String reference = "groups/" + mID + "/availability";
+
+
+
         // Spinner 1
         final Spinner spin2 = (Spinner) findViewById(R.id.timeSpinnerManager2);
         spin2.setOnItemSelectedListener(this);

@@ -17,6 +17,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * Activity for adding a member to the current group.
+ * Current group is passed from previous activity.
+ * Assumes group ID and Title is passed to this activity.
+ * @author Anthony Guerra
+ * @version 0.9
+ */
 public class AddMember extends AppCompatActivity {
     private EditText mUsernameEditText;
     private String mID;
@@ -29,6 +36,11 @@ public class AddMember extends AppCompatActivity {
 
     private static final String TAG = "ADDMEMBER";
 
+    /**
+     * Initializes values and inflates layout.
+     * Sets up listeners from layout.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +86,9 @@ public class AddMember extends AppCompatActivity {
 
     }
 
+    /**
+     * Adds a validated user to the current group.
+     */
     private void addUserToGroup(){
         final String username = mUsernameEditText.getText().toString();
         String reference = "usernames/" + username;
@@ -119,6 +134,10 @@ public class AddMember extends AppCompatActivity {
         });
     }
 
+    /**
+     * Makes sure the form is valid and non-empty.
+     * @return true if form is valid, false if there was an error or a textbox was left empty
+     */
     private boolean validateForm(){
         boolean valid = true;
         String username = mUsernameEditText.getText().toString();

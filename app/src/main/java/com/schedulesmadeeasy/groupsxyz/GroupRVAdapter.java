@@ -16,10 +16,14 @@ import android.widget.Toast;
 import java.util.List;
 
 /**
- * Created by agaa2 on 4/15/2018.
+ * Class used to help use functionality of a recycler view. This includes the layout view and
+ * the listeners for when an item is selected.
+ * @author Anthony Guerra
  */
-
 public class GroupRVAdapter extends RecyclerView.Adapter<GroupRVAdapter.GroupViewHolder>{
+    /**
+     * Helper class to display cardview.
+     */
     public static class GroupViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
         TextView groupTitle;
@@ -41,16 +45,31 @@ public class GroupRVAdapter extends RecyclerView.Adapter<GroupRVAdapter.GroupVie
     private String TAG = "GROUPrvaADAPTER";
     private Context mContext;
 
+    /**
+     * Constructor
+     * @param groups List of groups.
+     * @param context The activity that is calling the class.
+     */
     GroupRVAdapter(List<Group> groups, Context context){
         this.groups = groups;
         mContext = context;
     }
 
+    /**
+     * Default function when extending recyclerview adapter.
+     * @param recyclerView
+     */
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView){
         super.onAttachedToRecyclerView(recyclerView);
     }
 
+    /**
+     * Inflates the cardview.
+     * @param viewGroup the view to inflate
+     * @param i the position in the list
+     * @return
+     */
     @Override
     public GroupViewHolder onCreateViewHolder(ViewGroup viewGroup, int i ){
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.group_card_view, viewGroup, false);
@@ -58,6 +77,12 @@ public class GroupRVAdapter extends RecyclerView.Adapter<GroupRVAdapter.GroupVie
         return gvh;
     }
 
+    /**
+     * Functionality for when a cardview is clicked. If a user is a member of the group
+     * it will open a member layout. If a member is a manager of the group
+     * @param holder The cardview that is clicked.
+     * @param position The position in the groups list.
+     */
     @Override
     public void onBindViewHolder(@NonNull GroupViewHolder holder,final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
@@ -87,6 +112,10 @@ public class GroupRVAdapter extends RecyclerView.Adapter<GroupRVAdapter.GroupVie
         });
     }
 
+    /**
+     * Returns size of group list.
+     * @return
+     */
     @Override
     public int getItemCount(){
         return groups.size();

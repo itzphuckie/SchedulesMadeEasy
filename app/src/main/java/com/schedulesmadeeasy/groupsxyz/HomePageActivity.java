@@ -29,6 +29,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity that inflates layout listing all the groups the user belongs to.
+ * @author Anthony Guerra
+ */
 public class HomePageActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private List<Group> groups;
@@ -40,6 +44,10 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView mTitle;
     private final static String TAG = "MYGROUPS";
 
+    /**
+     * Initializes user data and inflates layout. Also sets up user authentication.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +71,7 @@ public class HomePageActivity extends AppCompatActivity {
             Log.d(TAG, "EMPTY");
         }
 
+        //ADDS LISTENER FOR DATABASE
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -106,6 +115,7 @@ public class HomePageActivity extends AppCompatActivity {
         });
 
 
+        //SETS UP NAVIGATION VIEW
         final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -171,10 +181,16 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Creates group.
+     */
     private void initializeData() {
         groups = new ArrayList<>();
     }
 
+    /**
+     * Creates adapter.
+     */
     private void initializeAdapter() {
         GroupRVAdapter adapter = new GroupRVAdapter(groups, this);
         rv.setAdapter(adapter);
@@ -187,6 +203,11 @@ public class HomePageActivity extends AppCompatActivity {
         return true;
     }*/
 
+    /**
+     * Opens up navigation menu on clicked.
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

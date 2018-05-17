@@ -14,6 +14,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ *  Activity for creating a group. Adds a group with given name to a user's ownership.
+ *  @author Anthony Guerra
+ *  @version .9
+ */
 public class AddGroupActivity extends AppCompatActivity {
     private Button mCreateGroup;
     private EditText mTitleEditText;
@@ -22,6 +27,10 @@ public class AddGroupActivity extends AppCompatActivity {
     private DatabaseReference mRefUserGroups;
     private DatabaseReference mRefGroupInfo;
 
+    /**
+     * Inflates layout and instantiates user and references to database.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +57,10 @@ public class AddGroupActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Creates new group in the database with the given name.
+     * Group belongs to the user that created it.
+     */
     private void addGroupInfoForUser(){
         String title = mTitleEditText.getText().toString();
         DatabaseReference groupRef = mRefUserGroups.push();
@@ -68,10 +81,10 @@ public class AddGroupActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void addToGroups(){
-        return;
-    }
-
+    /**
+     * Makes sure that each inputted text box is valid and has an input.
+     * @return true if the form is correct, false if there is an error in validation
+     */
     private boolean validateForm(){
         boolean valid = true;
         String title = mTitleEditText.getText().toString();

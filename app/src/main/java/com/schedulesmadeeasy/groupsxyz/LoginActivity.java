@@ -20,8 +20,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-//TODO MAKE EDIT TEXT EMPTY WHEN THEY FIRST CLICK ON IT, THEN MAKE IT EDITABLE FROM THE END
+/**
+ * Activity that inflates login layout. Provides login authentication for user.
+ * @author Anthony Guerra
+ * */
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LOGIN";
     private FirebaseAuth mAuth;
@@ -30,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     private static int sUserNameCount;
     private static int sPasswordCount;
 
+    /**
+     * Inflates views and sets up listeners.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +102,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Updates current user on start.
+     */
     @Override
     public void onStart(){
         super.onStart();
@@ -103,6 +112,9 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
+    /**
+     * On back pressed goes to signup activity.
+     */
     @Override
     public void onBackPressed(){
         Log.d(TAG, "onBackPressed:LoginActivity");
@@ -111,6 +123,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(setIntent);
     }
 
+    /**
+     * Validates email and password authentication.
+     * @param email The email.
+     * @param password The password for the user.
+     */
     private void signIn(String email, String password){
         Log.d(TAG, "signIn: " + email);
         if(!validateForm()){
@@ -145,6 +162,10 @@ public class LoginActivity extends AppCompatActivity {
         // [END sign_in_with_email]
     }
 
+    /**
+     * Validates the form to make sure it's non-empty or free of errors..
+     * @return true if validated, false if contains error
+     */
     private boolean validateForm() {
         boolean valid = true;
 
@@ -171,6 +192,12 @@ public class LoginActivity extends AppCompatActivity {
         updateUI(null);
     }*/
 
+    /**
+     * Updates teh UI base on the user given.
+     * If user has not set up account then goes to set up.
+     * If he has then goes to main page.
+     * @param user
+     */
     private void updateUI(FirebaseUser user){
         if(user != null){
             if(user.isEmailVerified()){

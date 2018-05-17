@@ -19,6 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * Activity for setting up initial information relating to your user.
+ * @author Anthony Guerra
+ * */
 public class SetUpActivity extends AppCompatActivity {
     private static final String TAG = "SETUP";
     private FirebaseAuth mAuth;
@@ -60,6 +64,9 @@ public class SetUpActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Adds user info to user information in database if it's valid.
+     */
     private void addUserInfo(){
         final String user_name = mUserName.getText().toString().trim();
         String first_name = mFirstName.getText().toString().trim();
@@ -93,6 +100,9 @@ public class SetUpActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Adds username to available databases.
+     */
     private void writeUsername(){
         String user_name = mUserName.getText().toString().trim();
         DatabaseReference databaseUsernames = FirebaseDatabase.getInstance().getReference("usernames");
@@ -110,6 +120,10 @@ public class SetUpActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Validates input to see if it's error free or non-empty.
+     * @return
+     */
     private boolean validateForm(){
         boolean valid = true;
         String user_name = mUserName.getText().toString().trim();

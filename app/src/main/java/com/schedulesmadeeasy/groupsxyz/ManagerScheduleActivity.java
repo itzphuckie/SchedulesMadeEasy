@@ -33,6 +33,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 
+/**
+ * This activity is started when a group is selected and the user is the manager of it.
+ * Provides functionality for a manager of a group. User can add members or assign shifts.
+ * @author Anthony Guerra
+ * */
 public class ManagerScheduleActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private EditText mUsernameEditText;
@@ -46,6 +51,11 @@ public class ManagerScheduleActivity extends AppCompatActivity {
     private Group mGroup;
     String TAG = "MANAGERSCHEDULE";
 
+    /**
+     * Inflates layout including navigation.
+     * Also initializes database.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -207,60 +217,12 @@ public class ManagerScheduleActivity extends AppCompatActivity {
 
     }
 
-    private void addUserToGroup(){
-        String username = mUsernameEditText.getText().toString();
-        String reference = "usernames/" + username;
-        DatabaseReference usernamesRef = FirebaseDatabase.getInstance().getReference(reference);
-        usernamesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String key;
-                key = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "KEY: " + key);
-                if(key == null){
-                    Toast.makeText(getApplicationContext(), "USERNAME DOESN'T EXIST",
-                            Toast.LENGTH_SHORT).show();
-                }else{
-                    //IF KEY EXISTS ADD USER TO GROUP
-                    //TODO MAKE SURE USERNAME IS NOT SELF
-                    String pushReference = "users/" + key + "/groups/" + mGroup.id;
-                    Log.d(TAG, "REFERENCE: " + pushReference);
-                    Log.d(TAG, "GROUP\n" + mGroup.toString());
-                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(pushReference);
-                    int groupMembers = Integer.parseInt(mGroup.getMembers()) + 1;
-                    Group memberGroup = new Group(mGroup.title, groupMembers + "", "Member", mGroup.id);
-                    userRef.setValue(memberGroup);
-                    //ADD ONE TO YOUR OWN GROUP
-                    pushReference = "users/" + mUser.getUid() + "/groups/" + mGroup.id;
-                    userRef = FirebaseDatabase.getInstance().getReference(pushReference);
-                    Group managerGroup = new Group(mGroup.title, groupMembers + "", "Manager", mGroup.id);
-                    userRef.setValue(managerGroup);
-                    Toast.makeText(getApplicationContext(), "USERNAME ADDED",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private boolean validateForm(){
-        boolean valid = true;
-        String username = mUsernameEditText.getText().toString();
-        if(TextUtils.isEmpty(username)){
-            mUsernameEditText.setError("Required");
-            valid = false;
-        }else{
-            mUsernameEditText.setError(null);
-        }
-
-        return valid;
-    }
-
-
+    /**
+     * Opens navigation menu when home is clicked.
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

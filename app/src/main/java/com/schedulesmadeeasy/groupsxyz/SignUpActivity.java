@@ -22,8 +22,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-//TODO MAKE IT NOT GO STRAIGHT TO LOGINACTIVITY IN CASE THEY WANT TO SIGN UP AS SOMEONE ELSE
-//TODO ALSO MAKE SURE THE EMAIL IS BEING SENT
+/**
+ * Activity for signing up to app. This makes a user out of information given.
+ * @author Anthony Guerra
+ * */
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SIGN UP";
     private FirebaseAuth mAuth;
@@ -34,6 +36,10 @@ public class SignUpActivity extends AppCompatActivity {
     private static int sUserNameCount;
     private static int sPasswordCount;
 
+    /**
+     * Inflates view and sets up listeners.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +120,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Starts user on start.
+     */
     @Override
     public void onStart(){
         super.onStart();
@@ -121,6 +130,11 @@ public class SignUpActivity extends AppCompatActivity {
         updateUI(currentUser);
     }
 
+    /**
+     * Signs up user if validated.
+     * @param email E-mail to sign up with.
+     * @param password Password to sign up with.
+     */
     private void signUp(String email, String password){
         Log.d(TAG, "createAccount: " + email);
         if(!validateForm()){
@@ -148,6 +162,9 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Sends email verification to email that is inputted.
+     */
     private void sendEmailVerification(){
         final FirebaseUser user = mAuth.getCurrentUser();
         user.sendEmailVerification()
@@ -184,6 +201,10 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Validates the form to check for non-empty inputs.
+     * @return
+     */
     private boolean validateForm(){
         //TODO REGEX for email address
         boolean valid = true;
@@ -217,6 +238,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Depending if user is validated it goes to login activity.
+     * @param user
+     */
     private void updateUI(FirebaseUser user){
         if(user != null){
             if(user.isEmailVerified()){

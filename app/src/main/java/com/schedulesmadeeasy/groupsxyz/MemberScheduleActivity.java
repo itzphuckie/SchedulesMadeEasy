@@ -33,6 +33,11 @@ import com.leinardi.android.speeddial.SpeedDialView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This activity is started when a group is selected and the user is the manager of it.
+ * Provides functionality for a member of a group. User can provide their availability.
+ * @author Anthony Guerra
+ * */
 public class MemberScheduleActivity extends AppCompatActivity {
     private SpeedDialView mSpeedDialView;
     private List<Shift> shifts;
@@ -206,16 +211,27 @@ public class MemberScheduleActivity extends AppCompatActivity {
         */
     }
 
+    /**
+     * Initializes data. Can be used to test shifts.
+     */
     private void initializeData() {
         shifts = new ArrayList<>();
     }
 
+    /**
+     * Initializes adapter.
+     */
     private void initializeAdapter(){
         ShiftRVAdapter adapter = new ShiftRVAdapter(shifts, this);
         rv.setAdapter(adapter);
     }
 
 
+    /**
+     * Opens navigation menu when home is clicked.
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

@@ -8,8 +8,11 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-//HELLO
 
+/**
+ * Initial activity that asks if user wants to sign in or sign up.
+ * @author Anthony Guerra
+ * */
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 

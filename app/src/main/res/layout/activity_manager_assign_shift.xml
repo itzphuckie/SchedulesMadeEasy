@@ -122,11 +122,11 @@
             android:id="@+id/allAvailabilityTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="There are currently no members in your group."
-            tools:text="@string/large_text"
+            android:text="There are currently no members in your group with availability."
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-            tools:layout_editor_absoluteX="22dp" />
+            tools:layout_editor_absoluteX="22dp"
+            tools:text="@string/large_text" />
     </ScrollView>
 
 

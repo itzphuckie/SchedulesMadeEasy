@@ -134,13 +134,14 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        Log.d(TAG, "KEY:" + dataSnapshot.getKey());
                         String fName = dataSnapshot.child("firstName").getValue(String.class);
                         String lName = dataSnapshot.child("lastName").getValue(String.class);
                         String id = dataSnapshot.child("userId").getValue(String.class);
                         String name = String.format("%s %s", fName, lName);
-
-                        mIDtoName.put(id, name);
                         Log.d(TAG, name);
+                        mIDtoName.put(id, name);
+
                         names.add(name);
                         //mAdapter1.add(name);
                         mAdapter1.notifyDataSetChanged();

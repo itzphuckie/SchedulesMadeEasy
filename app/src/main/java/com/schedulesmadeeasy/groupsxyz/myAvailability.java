@@ -40,6 +40,10 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
     };
     Button confirmButton;
 
+    /**
+     * What happens when functino created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -196,7 +200,9 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
 
         });
 
-
+/**
+ * Navigation view that populate three bar
+ */
         final NavigationView navigationView = findViewById(R.id.nav_view_my_availability);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener()
@@ -257,7 +263,10 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    //Performing action onItemSelected and onNothing selected
+    /**
+     *
+     Performing action onItemSelected and onNothing selected
+     */
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
         //Toast.makeText(getApplicationContext(), time[position], Toast.LENGTH_LONG).show();
@@ -269,6 +278,11 @@ public class myAvailability extends AppCompatActivity implements AdapterView.OnI
 
     }
 
+    /**
+     * Three bar menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

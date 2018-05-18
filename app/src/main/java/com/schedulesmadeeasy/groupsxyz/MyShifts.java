@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyShifts extends AppCompatActivity {
+    //declaring variables
     private DrawerLayout mDrawerLayout;
     private List<Shift> shifts;
     private RecyclerView rv;
@@ -38,7 +39,7 @@ public class MyShifts extends AppCompatActivity {
     private final String TAG = "MYSHIFTS";
 
 
-
+//On create function for when the page is created what to execute
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +91,7 @@ public class MyShifts extends AppCompatActivity {
             }
         });
 
+        //navigation view, defines what populates on three bar menu
         final NavigationView navigationView = findViewById(R.id.nav_view_my_shifts);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -150,7 +152,7 @@ public class MyShifts extends AppCompatActivity {
     }
 
 
-
+//initialize arraylist
     private void initializeData() {
         shifts = new ArrayList<>();
     }
@@ -160,6 +162,7 @@ public class MyShifts extends AppCompatActivity {
         rv.setAdapter(adapter);
     }
 
+    //Define what happens when three bar is selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

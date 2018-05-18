@@ -4,6 +4,9 @@ package com.schedulesmadeeasy.groupsxyz;
  * Created by pc on 5/2/2018
  */
 
+/**
+ * Shift helper class
+ */
 public class Shift {
     String company;
     String day;

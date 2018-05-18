@@ -4,6 +4,9 @@ package com.schedulesmadeeasy.groupsxyz;
  * Created by agaa2 on 4/8/2018.
  */
 
+/**
+ * User class that is needed to build a user upon sign up
+ */
 public class User {
     private String user_name;
     private String email;

@@ -27,6 +27,9 @@ public class RequestActivity extends AppCompatActivity implements
         DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener{
     private DrawerLayout mDrawerLayout;
 
+    /**
+     * Buttons needed in function
+     */
     Button End_Date_Button;
     Button Start_Date_Button;
     TextView Start_Date_View;
@@ -39,6 +42,11 @@ public class RequestActivity extends AppCompatActivity implements
     int dayOfWeek;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
 
+
+    /**
+     * What happens when the function is created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +83,10 @@ public class RequestActivity extends AppCompatActivity implements
 
         });
 
+
+/**
+ * Populate three bar menu
+ */
         final NavigationView navigationView = findViewById(R.id.nav_view_request);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -134,6 +146,13 @@ public class RequestActivity extends AppCompatActivity implements
 
     }
 
+    /**
+     * Set date
+     * @param datePicker
+     * @param i
+     * @param i1
+     * @param i2
+     */
         public void onDateSet(DatePicker datePicker, int i, int i1, int i2)
         {
             yearFinal = i;
@@ -147,7 +166,12 @@ public class RequestActivity extends AppCompatActivity implements
             timePickerDialog.show();
         }
 
-
+    /**
+     * Set time
+     * @param timePicker
+     * @param i
+     * @param i1
+     */
         public void onTimeSet(TimePicker timePicker, int i, int i1)
         {
             Calendar c = Calendar.getInstance();
@@ -201,6 +225,11 @@ public class RequestActivity extends AppCompatActivity implements
         }
 
 
+    /**
+     * Pull up three bar menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

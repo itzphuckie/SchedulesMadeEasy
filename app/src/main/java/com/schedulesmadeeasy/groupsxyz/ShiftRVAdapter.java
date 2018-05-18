@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-
+/**
+ * Class for helping generate a card
+ */
 public class ShiftRVAdapter extends RecyclerView.Adapter<ShiftRVAdapter.ShiftViewHolder>{
     public static class ShiftViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
@@ -43,11 +45,21 @@ public class ShiftRVAdapter extends RecyclerView.Adapter<ShiftRVAdapter.ShiftVie
         mContext = context;
     }
 
+    /**
+     * Setting up the recycler view
+     * @param recyclerView
+     */
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView){
         super.onAttachedToRecyclerView(recyclerView);
     }
 
+    /**
+     * Upon creation of view holder
+     * @param viewShift
+     * @param i
+     * @return
+     */
     @Override
     public ShiftViewHolder onCreateViewHolder(ViewGroup viewShift, int i ){
         View v = LayoutInflater.from(viewShift.getContext()).inflate(R.layout.shift_card_view, viewShift, false);
@@ -76,6 +88,10 @@ public class ShiftRVAdapter extends RecyclerView.Adapter<ShiftRVAdapter.ShiftVie
         });
     }
 
+    /**
+     * Returns the item count
+     * @return
+     */
     @Override
     public int getItemCount(){
         return shifts.size();

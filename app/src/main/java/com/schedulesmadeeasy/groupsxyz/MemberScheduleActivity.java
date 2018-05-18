@@ -49,6 +49,10 @@ public class MemberScheduleActivity extends AppCompatActivity {
     private String mID;
     private String mTitle;
 
+    /**
+     * What happens when function created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

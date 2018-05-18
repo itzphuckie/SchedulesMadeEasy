@@ -34,6 +34,9 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
     private ArrayList<String> names;
     private final static String TAG = "ASSIGN SHIFTS";
 
+    /**
+     * Spinners for availability
+     */
     private Spinner mSpinner1;
     private Spinner mSpinner2;
     private Spinner mSpinner3;
@@ -61,7 +64,10 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
     TextView mAvailability;
 
 
-
+    /**
+     * What happens when the function is created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -226,6 +232,9 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
         updateTime();
     }
 
+    /**
+     * Update the time of availability
+     */
     Runnable updater;
     void updateTime(){
         updater = new Runnable() {
@@ -247,6 +256,11 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
         mHandler.post(updater);
     }
 
+    /**
+     * Initialization of the spinner
+     * @param spin
+     * @param adapter
+     */
     private void initializeSpinner(Spinner spin, ArrayAdapter adapter){
         spin.setOnItemSelectedListener(this);
         //Creating the ArrayAdapter instance having the bank name list
@@ -254,16 +268,31 @@ public class ManagerAssignShift extends AppCompatActivity implements AdapterView
         spin.setAdapter(adapter);
     }
 
+    /**
+     * Three bar
+     * @param arg0
+     * @param arg1
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
         //Toast.makeText(getApplicationContext(), time[position], Toast.LENGTH_LONG).show();
     }
+
+    /**
+     * Default view
+     * @param arg0
+     */
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
 
     }
 
+    /**
+     * When the function is destroyed
+     */
     @Override
     protected void onDestroy(){
         super.onDestroy();

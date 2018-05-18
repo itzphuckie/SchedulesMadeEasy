@@ -16,15 +16,19 @@ public class MySettingsActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
 
 
-
-
+    /**
+     * What happens when function is created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_settings);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-
+/**
+ * Populate three bar menu
+ */
         final NavigationView navigationView = findViewById(R.id.nav_view_my_settings);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener()
@@ -85,6 +89,11 @@ public class MySettingsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Three bar menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
